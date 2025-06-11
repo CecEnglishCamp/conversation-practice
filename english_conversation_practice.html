@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>English Conversation Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+    }
+    h2 {
+      color: #333;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .btn {
+      padding: 6px 12px;
+      margin-right: 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    .text {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🗣️ English Conversation Practice</h1>
+
+  <div class="section">
+    <h2>How to Improve Your English Conversation Skills</h2>
+    <p>
+      If you want to improve your English conversation skills, you need to undergo the following training. 
+      You may also respond by asking your partner questions again, just like in table tennis, where the fun comes 
+      from hitting the ball back and forth—when the ball comes to you, and you return it well, the game continues with excitement.
+    </p>
+    <p>
+      Similarly, in English conversation, when you effectively respond to what a native speaker says, 
+      the dialogue can keep going. Therefore, this method will help you learn how to conduct English 
+      conversations using short question formats (Format A & B), followed by real conversation situations.
+    </p>
+    <button class="btn" onclick="speak(`If you want to improve your English conversation skills, you need to undergo the following training. You may also respond by asking your partner questions again, just like in table tennis, where the fun comes from hitting the ball back and forth. When the ball comes to you and you return it well, the game continues with excitement. Similarly, in English conversation, when you effectively respond to what a native speaker says, the dialogue can keep going.`)">
+      🔊 Play Instruction
+    </button>
+  </div>
+
+  <div class="section">
+    <h2>📘 Format A — Short Questions</h2>
+    <div id="formatA"></div>
+  </div>
+
+  <script>
+    function speak(text) {
+      const msg = new SpeechSynthesisUtterance(text);
+      msg.lang = 'en-US';
+      window.speechSynthesis.speak(msg);
+    }
+
+    const formatA = [
+      ["I cooked dinner last night.", "Did you?"],
+      ["I’ve been to Japan.", "Have you?"],
+      ["I like spicy food.", "Do you?"],
+      ["I’m learning English.", "Are you?"],
+      ["I will visit my grandma tomorrow.", "Will you?"],
+      ["I had a strange dream.", "Did you?"],
+      ["I go jogging every morning.", "Do you?"],
+      ["I was born in March.", "Were you?"],
+      ["I can ride a bicycle.", "Can you?"],
+      ["I’ve got two sisters.", "Have you?"]
+    ];
+
+    const formatAContainer = document.getElementById('formatA');
+
+    formatA.forEach((item, index) => {
+      const row = document.createElement('div');
+      row.className = 'row';
+
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.innerText = '🔊';
+      btn.onclick = () => speak(item[0]);
+
+      const txt = document.createElement('div');
+      txt.className = 'text';
+      txt.innerHTML = `<strong>${index + 1}.</strong> ${item[0]} → <em>${item[1]}</em>`;
+
+      row.appendChild(btn);
+      row.appendChild(txt);
+      formatAContainer.appendChild(row);
+    });
+  </script>
+  <div class="section">
+    <h2>📘 Format B — Short + Full Questions</h2>
+    <div id="formatB"></div>
+  </div>
+
+  <script>
+    const formatB = [
+      ["I cooked dinner last night.", "Did you?", "Did you cook dinner last night?"],
+      ["I’ve been to Japan.", "Have you?", "Have you been to Japan?"],
+      ["I like spicy food.", "Do you?", "Do you like spicy food?"],
+      ["I’m learning English.", "Are you?", "Are you learning English?"],
+      ["I will visit my grandma tomorrow.", "Will you?", "Will you visit your grandma tomorrow?"],
+      ["I had a strange dream.", "Did you?", "Did you have a strange dream?"],
+      ["I go jogging every morning.", "Do you?", "Do you go jogging every morning?"],
+      ["I was born in March.", "Were you?", "Were you born in March?"],
+      ["I can ride a bicycle.", "Can you?", "Can you ride a bicycle?"],
+      ["I’ve got two sisters.", "Have you?", "Have you got two sisters?"]
+    ];
+
+    const formatBContainer = document.getElementById('formatB');
+
+    formatB.forEach((item, index) => {
+      const row = document.createElement('div');
+      row.className = 'row';
+
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.innerText = '🔊';
+      btn.onclick = () => speak(item[0]);
+
+      const txt = document.createElement('div');
+      txt.className = 'text';
+      txt.innerHTML = `<strong>${index + 1}.</strong> ${item[0]} → <em>${item[1]}</em> → ${item[2]}`;
+
+      row.appendChild(btn);
+      row.appendChild(txt);
+      formatBContainer.appendChild(row);
+    });
+  </script>
+
+  <div class="section">
+    <h2>🎭 Situation 1: Discussing the Past Weekend</h2>
+    <div id="situation1"></div>
+  </div>
+
+  <script>
+    const situation1 = [
+      ["Emily", "I had a really fun weekend."],
+      ["You", "Did you? What did you do?"],
+      ["Emily", "I went to the beach with some friends. The weather was perfect!"],
+      ["You", "Were you? That sounds amazing. I haven’t been to the beach in months."],
+      ["Emily", "You should definitely go next time. We swam, played volleyball, and watched the sunset."],
+      ["You", "That sounds like a dream. I didn’t do anything that exciting."],
+      ["Emily", "Oh? What did you do?"],
+      ["You", "I mostly stayed home and rested. I caught up on sleep and watched a few movies."],
+      ["Emily", "That actually sounds really nice too. We all need those chill weekends sometimes."],
+      ["You", "Exactly. I feel way more relaxed now. But yeah, your beach day makes me jealous!"],
+      ["Emily", "Haha! Next time, you’re coming with us. Deal?"],
+      ["You", "Deal. Just let me know when!"]
+    ];
+
+    const situationContainer = document.getElementById('situation1');
+
+    situation1.forEach((line, index) => {
+      const row = document.createElement('div');
+      row.className = 'row';
+
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.innerText = '🔊';
+      btn.onclick = () => speak(line[1]);
+
+      const txt = document.createElement('div');
+      txt.className = 'text';
+      txt.innerHTML = `<strong>${line[0]}:</strong> ${line[1]}`;
+
+      row.appendChild(btn);
+      row.appendChild(txt);
+      situationContainer.appendChild(row);
+    });
+  </script>
+
+</body>
+</html>
