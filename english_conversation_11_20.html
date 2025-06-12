@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>English Conversation 11–20</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f9f9f9;
+      line-height: 1.6;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .btn {
+      padding: 6px 12px;
+      margin-right: 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    .text {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🗣️ English Conversation Practice 11–20</h1>
+
+  <div class="section">
+    <h2>📘 Format A — Short Questions</h2>
+    <div id="formatA"></div>
+  </div>
+
+  <div class="section">
+    <h2>📘 Format B — Short + Full Questions</h2>
+    <div id="formatB"></div>
+  </div>
+
+  <script>
+    function speak(text) {
+      const msg = new SpeechSynthesisUtterance(text);
+      msg.lang = 'en-US';
+      window.speechSynthesis.speak(msg);
+    }
+
+    const formatA = [
+      ["I watched a movie last night.", "Did you?"],
+      ["I’ve finished my homework.", "Have you?"],
+      ["I’m feeling a bit nervous.", "Are you?"],
+      ["I’ll call you later.", "Will you?"],
+      ["I can speak Chinese.", "Can you?"],
+      ["I had a cold last week.", "Did you?"],
+      ["I’ve never tried sushi.", "Have you?"],
+      ["I’m working from home today.", "Are you?"],
+      ["I was very tired yesterday.", "Were you?"],
+      ["I’ve got a new phone.", "Have you?"]
+    ];
+
+    const formatB = [
+      ["I watched a movie last night.", "Did you?", "Did you watch a movie last night?"],
+      ["I’ve finished my homework.", "Have you?", "Have you finished your homework?"],
+      ["I’m feeling a bit nervous.", "Are you?", "Are you feeling a bit nervous?"],
+      ["I’ll call you later.", "Will you?", "Will you call me later?"],
+      ["I can speak Chinese.", "Can you?", "Can you speak Chinese?"],
+      ["I had a cold last week.", "Did you?", "Did you have a cold last week?"],
+      ["I’ve never tried sushi.", "Have you?", "Have you ever tried sushi?"],
+      ["I’m working from home today.", "Are you?", "Are you working from home today?"],
+      ["I was very tired yesterday.", "Were you?", "Were you very tired yesterday?"],
+      ["I’ve got a new phone.", "Have you?", "Have you got a new phone?"]
+    ];
+
+    const formatAContainer = document.getElementById('formatA');
+    formatA.forEach((item, index) => {
+      const row = document.createElement('div');
+      row.className = 'row';
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.innerText = '🔊';
+      btn.onclick = () => speak(item[0]);
+      const txt = document.createElement('div');
+      txt.className = 'text';
+      txt.innerHTML = `<strong>${index + 11}.</strong> ${item[0]} → <em>${item[1]}</em>`;
+      row.appendChild(btn);
+      row.appendChild(txt);
+      formatAContainer.appendChild(row);
+    });
+
+    const formatBContainer = document.getElementById('formatB');
+    formatB.forEach((item, index) => {
+      const row = document.createElement('div');
+      row.className = 'row';
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.innerText = '🔊';
+      btn.onclick = () => speak(item[0]);
+      const txt = document.createElement('div');
+      txt.className = 'text';
+      txt.innerHTML = `<strong>${index + 11}.</strong> ${item[0]} → <em>${item[1]}</em> → ${item[2]}`;
+      row.appendChild(btn);
+      row.appendChild(txt);
+      formatBContainer.appendChild(row);
+    });
+  </script>
+  <div class="section">
+    <h2>🎭 Situation 2: Studying Together</h2>
+    <div id="situation2"></div>
+  </div>
+
+  <script>
+    const situation2 = [
+      ["Emily", "Hey, how’s your day going so far?"],
+      ["You", "Not bad. Just finished lunch and thinking about getting started on homework."],
+      ["Emily", "Oh, I’ve finished my homework already."],
+      ["You", "Have you? That’s impressive! I still have a bit left to do."],
+      ["Emily", "I tried to get it done early so I could relax tonight."],
+      ["You", "Smart move. I should start doing that too."],
+      ["Emily", "By the way, have you ever tried sushi?"],
+      ["You", "Have you? Yeah, I love it! Especially salmon rolls. What about you?"],
+      ["Emily", "I had it for lunch today! It was so good."],
+      ["You", "You're making me hungry again 😄"],
+      ["Emily", "Haha! So, do you go to the gym after studying?"],
+      ["You", "Do you? Yeah, I usually go in the evenings. What about you?"],
+      ["Emily", "Same here. It helps me clear my mind after all that schoolwork."],
+      ["You", "Totally agree. Maybe we should go together sometime!"]
+    ];
+
+    const situationContainer = document.getElementById("situation2");
+
+    situation2.forEach((line, index) => {
+      const row = document.createElement("div");
+      row.className = "row";
+      const btn = document.createElement("button");
+      btn.className = "btn";
+      btn.innerText = "🔊";
+      btn.onclick = () => speak(line[1]);
+      const txt = document.createElement("div");
+      txt.className = "text";
+      txt.innerHTML = `<strong>${line[0]}:</strong> ${line[1]}`;
+      row.appendChild(btn);
+      row.appendChild(txt);
+      situationContainer.appendChild(row);
+    });
+  </script>
+
+</body>
+</html>
